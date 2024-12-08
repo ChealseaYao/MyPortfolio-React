@@ -11,14 +11,17 @@ export const Projects = () => {
 
   const projects = [
     {
-      title: "Business Startup",
+      title: "Food-Delivery-Website",
       description: "Design & Development",
       imgUrl: projImg1,
+      linkUrl: "https://food-delivery-blond-eight.vercel.app/"
+
     },
     {
-      title: "Business Startup",
+      title: "Memories-APP",
       description: "Design & Development",
       imgUrl: projImg2,
+      linkUrl:"https://memories-app-2vq9.onrender.com/"
     },
     {
       title: "Business Startup",
@@ -28,12 +31,12 @@ export const Projects = () => {
     {
       title: "Business Startup",
       description: "Design & Development",
-      imgUrl: projImg1,
+      imgUrl: projImg3,
     },
     {
       title: "Business Startup",
       description: "Design & Development",
-      imgUrl: projImg2,
+      imgUrl: projImg3,
     },
     {
       title: "Business Startup",
