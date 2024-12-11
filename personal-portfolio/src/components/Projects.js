@@ -21,7 +21,7 @@ export const Projects = () => {
       title: "Memories-APP",
       description: "Design & Development",
       imgUrl: projImg2,
-      linkUrl:"https://memories-app-client-z3mt.onrender.com"
+      linkUrl:"https://memories-five-psi.vercel.app/"
     },
     {
       title: "Business Startup",
