@@ -1,0 +1,10 @@
+<svg width="200" height="100" viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 字母 M -->
+  <path d="M10 80V20L30 50L50 20V80H40V40L30 55L20 40V80H10Z" fill="black" stroke="black" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+
+  <!-- 字母 I -->
+  <path d="M70 20V80H80V20H70Z" fill="black" stroke="black" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+
+  <!-- 字母 N -->
+  <path d="M110 80V20L130 60V20H140V80H130L110 40V80H110Z" fill="black" stroke="black" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+</svg>

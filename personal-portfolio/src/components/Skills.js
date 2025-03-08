@@ -6,6 +6,8 @@ import 'react-multi-carousel/lib/styles.css';
 import arrow1 from "../assets/img/arrow1.svg";
 import arrow2 from "../assets/img/arrow2.svg";
 import colorSharp from "../assets/img/color-sharp.png"
+import { FaJava, FaJsSquare, FaDatabase,FaReact,FaNode,FaLeaf } from 'react-icons/fa';
+import { SiSpringboot, SiRedis, SiMongodb,SiGit } from 'react-icons/si';
 
 export const Skills = () => {
   const responsive = {
@@ -34,23 +36,44 @@ export const Skills = () => {
                 <div className="col-12">
                     <div className="skill-bx wow zoomIn">
                         <h2>Skills</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br></br> Lorem Ipsum has been the industry's standard dummy text.</p>
+                        <p>  </p>
+                        {/* <p>I am a developer with a strong foundation in both front-end and back-end technologies. My expertise spans across programming languages like Java, JavaScript, and TypeScript as well as frameworks such as Spring Boot, React, and Node.js. I have hands-on experience in building scalable web applications, designing RESTful APIs, and optimizing database performance using MySQL, MongoDB, and Redis.<br></br> Lorem Ipsum has been the industry's standard dummy text.</p> */}
                         <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
                             <div className="item">
-                                <img src={meter1} alt="Image" />
+                                <FaJava size={80}/>
                                 <h5>Java</h5>
                             </div>
                             <div className="item">
-                                <img src={meter2} alt="Image" />
+                                <FaJsSquare size={80}/>
                                 <h5>JavaScript</h5>
                             </div>
                             <div className="item">
-                                <img src={meter3} alt="Image" />
+                                <FaDatabase size={80}/>
                                 <h5>MySql</h5>
                             </div>
                             <div className="item">
-                                <img src={meter1} alt="Image" />
-                                <h5>R Language</h5>
+                                <SiSpringboot size={80}/>
+                                <h5>Spring Boot</h5>
+                            </div>
+                            <div className="item">
+                                <FaReact size={80}/>
+                                <h5>React</h5>
+                            </div>
+                            <div className="item">
+                                <FaNode size={80}/>
+                                <h5>Node.Js</h5>
+                            </div>
+                            <div className="item">
+                                <SiRedis size={80}/>
+                                <h5>Redis</h5>
+                            </div>
+                            <div className="item">
+                                <SiMongodb size={80}/>
+                                <h5>MongoDB</h5>
+                            </div>
+                            <div className="item">
+                                <SiGit size={80}/>
+                                <h5>Git</h5>
                             </div>
                         </Carousel>
                     </div>

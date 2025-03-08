@@ -23,23 +23,55 @@ export const Contact = () => {
       })
   }
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setButtonText("Sending...");
+  //   let response = await fetch("https://formspree.io/f/xjkybpnz", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json;charset=utf-8",
+  //     },
+  //     body: JSON.stringify(formDetails),
+  //   });
+  //   setButtonText("Send");
+  //   let result = await response.json();
+  //   setFormDetails(formInitialDetails);
+  //   if (result.code == 200) {
+  //     setStatus({ success: true, message: 'Message sent successfully'});
+  //   } else {
+  //     setStatus({ success: false, message: 'Something went wrong, please try again later.'});
+  //   }
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending...");
-    let response = await fetch("http://localhost:5000/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify(formDetails),
-    });
-    setButtonText("Send");
-    let result = await response.json();
-    setFormDetails(formInitialDetails);
-    if (result.code == 200) {
-      setStatus({ succes: true, message: 'Message sent successfully'});
-    } else {
-      setStatus({ succes: false, message: 'Something went wrong, please try again later.'});
+
+    try {
+      const formData = new URLSearchParams();
+      for (const key in formDetails) {
+        formData.append(key, formDetails[key]);
+      }
+
+      let response = await fetch("https://formspree.io/f/xjkybpnz", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: formData,
+      });
+
+      console.log(response)
+
+      setButtonText("Send");
+      if (response.ok) {
+        setStatus({ success: true, message: 'Message sent successfully' });
+        setFormDetails(formInitialDetails); // 清空表单
+      } else {
+        setStatus({ success: false, message: 'Something went wrong, please try again later.' });
+      }
+    } catch (error) {
+      setStatus({ success: false, message: 'Network error, please try again later.' });
+      setButtonText("Send");
     }
   };
 
