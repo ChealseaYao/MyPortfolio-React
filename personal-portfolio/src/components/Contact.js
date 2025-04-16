@@ -47,26 +47,32 @@ export const Contact = () => {
     setButtonText("Sending...");
 
     try {
-      const formData = new URLSearchParams();
-      for (const key in formDetails) {
-        formData.append(key, formDetails[key]);
-      }
+      const payload = {
+        firstName: formDetails.firstName,
+        lastName: formDetails.lastName, // 修复2：修正拼写
+        email: formDetails.email,
+        phone: formDetails.phone,
+        message: formDetails.message
+      };
+      
 
       let response = await fetch("https://formspree.io/f/xjkybpnz", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: formData,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        mode: "cors",
       });
 
       console.log(response)
 
       setButtonText("Send");
-      if (response.ok) {
+      if (response.status === 200 || response.ok) {
+
         setStatus({ success: true, message: 'Message sent successfully' });
         setFormDetails(formInitialDetails); // 清空表单
       } else {
+        const errorData = await response.json(); // 获取错误详情
+        console.error("Formspree Error:", errorData);
         setStatus({ success: false, message: 'Something went wrong, please try again later.' });
       }
     } catch (error) {
@@ -97,7 +103,7 @@ export const Contact = () => {
                       <input type="text" value={formDetails.firstName} placeholder="First Name" onChange={(e) => onFormUpdate('firstName', e.target.value)} />
                     </Col>
                     <Col size={12} sm={6} className="px-1">
-                      <input type="text" value={formDetails.lasttName} placeholder="Last Name" onChange={(e) => onFormUpdate('lastName', e.target.value)}/>
+                      <input type="text" value={formDetails.lastName} placeholder="Last Name" onChange={(e) => onFormUpdate('lastName', e.target.value)}/>
                     </Col>
                     <Col size={12} sm={6} className="px-1">
                       <input type="email" value={formDetails.email} placeholder="Email Address" onChange={(e) => onFormUpdate('email', e.target.value)} />
